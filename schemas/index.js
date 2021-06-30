@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const connect = () => {
   mongoose
-    .connect("mongodb://test:test@3.36.122.242:27017", {
+    .connect("mongodb://localhost:27017/myBlog", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,

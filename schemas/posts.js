@@ -24,6 +24,14 @@ const postsSchema = new Schema({
     },
     img: {
         type: String
+    },
+    writer: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
     }
 });
 

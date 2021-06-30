@@ -30,7 +30,6 @@
       
        $(document).ready(function() {
         readPost();
-        console.log($('#title'))
         
        });
 
@@ -46,6 +45,7 @@
             $('#subtitle').val(postsDetail['subtitle']);
             $('#category').val(postsDetail['category']);
             $("#context").text(postsDetail["context"]);
+            $("#writer").val(postsDetail["writer"]);
             
             if(postsDetail['img'] == undefined){
               $("#imgBox").empty()
@@ -62,12 +62,47 @@
         window.location.href=`/read?postId=${postId}`
       }
 
-      function editing(){
+      function editPasswordCheck(){
+        $.ajax({
+          type: "GET",
+          url: `/api/posts/${postId}`,
+          data: {},
+          success: function(response) {
+            let postsDetail = response["detail"];
+            if($("#password").val() !== postsDetail['password']){
+              alert("패스워드가 일치하지 않습니다.")
+            }else{
+              editPost();
+            }
+          }
+        })
+      }
 
+      function deletePasswordCheck(){
+        $.ajax({
+          type: "GET",
+          url: `/api/posts/${postId}`,
+          data: {},
+          success: function(response) {
+            let postsDetail = response["detail"];
+            if($("#password").val() !== postsDetail['password']){
+              alert("패스워드가 일치하지 않습니다.")
+            }else{
+              deletePost();
+            }
+          }
+        })
+      }
+
+        
+
+      function editPost(){
+        
         title1 = $('#title').val()
         subtitle1 = $('#subtitle').val()
         category1 = $('#category').val()
         context1 = $('#context').val()
+        writer1 = $('#writer').val()
         img1 = $('#image')[0].files[0]
 
         let formData = new FormData();
@@ -76,6 +111,7 @@
         formData.append("subtitle", subtitle1)
         formData.append("category", category1)
         formData.append("context", context1)
+        formData.append("writer", writer1)
         formData.append("img", img1)
       
         $.ajax({
@@ -93,7 +129,20 @@
         }
       })
     }
-
+    
+    function deletePost(){
+        $.ajax({
+          type: "DELETE",
+          url: `/api/delete/${postId}`,
+          data: {},
+          success: function(response) {
+            if (response["result"] == "success") {
+              alert("삭제 완료")
+              window.location.href='/list'
+            }
+          }
+        })
+      }
     </script>
 </head>
 
@@ -156,10 +205,17 @@
         <div style="margin-left: 10px; color: rgb(190, 190, 190);">[ JPEG , PNG only ]</div>
         <div style="margin: 10px;">
         <textarea id="context" class="textarea" placeholder="Context" rows="20"> </textarea>
-        
+        </div>
+        <div style="margin: 10px; width: 200px;" class="label"> 작성자
+          <input maxlength="7" id="writer" class="input" type="text" placeholder="Maximum 7 letters">
+        </div>
+        <div style="margin: 10px; width: 200px;" class="label"> 비밀번호
+          <input id="password" class="input" type="text" placeholder="Password">
+        </div>
         <div style="float: right;">
           <button class="button is-light" style="width: 100px; margin: 5px;" onclick="goBack()">취소</button>
-          <button class="button is-success" style="width: 100px; margin: 5px;" onclick="editing()" >저장</button>
+          <button class="button is-danger" style="width: 100px; margin: 5px;" onclick="deletePasswordCheck()">삭제하기</button>
+          <button class="button is-success" style="width: 100px; margin: 5px;" onclick="editPasswordCheck()">수정하기</button>
           </div>
         </div>
         </div>

@@ -49,15 +49,17 @@
     }
     
     function posting(){
-
+      
       let formData = new FormData();
 
-      formData.append("title", $('#title').val())
-      formData.append("subtitle", $('#subtitle').val())
-      formData.append("category", $('#category').val())
-      formData.append("context", $('#context').val())
-      formData.append("date", getDate())
-      formData.append("img", $('#image')[0].files[0])
+      formData.append("title", $('#title').val());
+      formData.append("subtitle", $('#subtitle').val());
+      formData.append("category", $('#category').val());
+      formData.append("context", $('#context').val());
+      formData.append("date", getDate());
+      formData.append("img", $('#image')[0].files[0]);
+      formData.append("writer", $('#writer').val());
+      formData.append("password", $('#password').val());
       
       $.ajax({
         type: "POST",
@@ -69,11 +71,12 @@
         success: function(response) {
             if (response["result"] == "success") {
                 alert("쓰기완료");
-                window.location.href= " /list "
+                window.location.href= "/list"
             }
       }
     })
   }
+
     </script>
    
 </head>
@@ -130,9 +133,15 @@
     <div style="margin: 10px;">
     <textarea id="context" class="textarea" placeholder="Context" rows="20"></textarea>
     </div>
+    <div style="margin: 10px; width: 200px;" class="label"> 작성자
+      <input maxlength="7" id="writer" class="input" type="text" placeholder="Maximum 7 letters">
+    </div>
+    <div style="margin: 10px; width: 200px;" class="label"> 비밀번호
+      <input id="password" class="input" type="text" placeholder="Password">
+    </div>
     <div style="float: right;">
     <button class="button is-light" style="width: 100px; margin: 5px;" onclick="location.href='/list'">취소</button>
-    <button class="button is-success" style="width: 100px; margin: 5px;" onclick="posting()" >저장</button>
+    <button class="button is-success" style="width: 100px; margin: 5px;" onclick="posting()">저장</button>
     </div>
   
 </div>
