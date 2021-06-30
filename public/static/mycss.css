@@ -1,0 +1,113 @@
+
+
+.wrap {
+    width: 80%;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+.readWrap{
+  width: 80%;
+  max-width: 800px;
+  margin: 10px auto;
+}
+
+.sepaLine{
+  width: 800px;
+  height: 3px;
+  background-color:rgb(236, 236, 236);
+}
+
+#editBtn{
+  margin-right: 10px;
+  
+}
+
+
+#listCard{
+  width: 260px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pikachu{
+    width: 130px;
+    height: 100px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.navDate{
+    text-align: center;
+    font-size: 60px;
+
+}
+
+.writeWrap{
+    width: 80%;
+    max-width: 800px;
+    margin: 10px auto;
+}
+
+.listWrap{
+    width: 80%;
+    max-width: 1200px;
+    margin: 10px auto;
+}
+
+#cardBox{
+    background: #fff;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); 
+}
+
+.card {
+    font-weight: 300;
+    font-size: 1rem;
+    width: 300px;
+    margin: 40px;
+    box-shadow: 0 0 3px rgba(black, 0.3);
+    padding: 10px 15px;
+    border-radius: 4px;
+    float: left;
+    transition: all 0.3s ease-in-out;
+  }
+  .card__title {
+    color: #333;
+    font-size: 2.1em;
+    margin: 15px 0;
+    font-weight: normal;
+  }
+  .card__image {
+    display: block;
+    background-color: #ecf0f1;
+    position: relative;
+    margin: -10px -15px 0;
+    height: 150px;
+    background-size: cover;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  .card__content {
+    font-weight: 300;
+    color: #999;
+  }
+  .card__footer {
+    padding: 0.2em 0;
+    margin: 2em 0 0.5em 0;
+    font-size: 0.8em;
+    font-weight: 300;
+    color: #1abc9c;
+    
+  }
+  .editBtn {
+    float: right;
+    padding-top: 7px;
+  }
+  .card:hover {
+    box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+    top: -5px;
+    left: -5px;
+  }
+
+  
