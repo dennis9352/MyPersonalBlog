@@ -72,7 +72,7 @@
             if($("#password").val() !== postsDetail['password']){
               alert("패스워드가 일치하지 않습니다.")
             }else{
-              editPost();
+              check();
             }
           }
         })
@@ -129,6 +129,7 @@
         }
       })
     }
+  
     
     function deletePost(){
         $.ajax({
@@ -143,6 +144,29 @@
           }
         })
       }
+
+      function check() {
+        let title = $('#title').val()
+        let subtitle = $('#subtitle').val()
+        let category = $('#category').val()
+        let context = $('#context').val()
+        let writer = $('#writer').val()
+
+        if(title == "") {
+          alert("제목을 입력해주세요");
+          
+        }else if(subtitle == "") {
+          alert("부제목을 입력해주세요");
+          
+        }else if(context == "") {
+          alert("내용을 입력해주세요");
+
+        }else if(writer == "") {
+          alert("작성자를 입력해주세요");
+        }
+        else editPost();
+        }
+
     </script>
 </head>
 
@@ -220,7 +244,6 @@
         </div>
         </div>
       </div>
-      
     </div>
     </div>
   </div>

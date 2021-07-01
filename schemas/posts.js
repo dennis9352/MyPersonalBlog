@@ -8,7 +8,8 @@ const postsSchema = new Schema({
         required: true,
     },
     subtitle: {
-        type: String
+        type: String,
+        required: true
     },
     context: {
         type: String,

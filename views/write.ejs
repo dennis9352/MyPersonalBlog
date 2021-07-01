@@ -77,6 +77,29 @@
     })
   }
 
+  function check() {
+
+    if(fr.title.value == "") {
+      alert("제목을 입력해주세요");
+      return false;
+    }else if(fr.subtitle.value == "") {
+      alert("부제목을 입력해주세요");
+      return false;
+    }else if(fr.context.value == "") {
+      alert("내용을 입력해주세요");
+      return false;
+    }else if(fr.writer.value == "") {
+      alert("작성자를 입력해주세요");
+      return false;
+    }else if(fr.password.value == "") {
+      alert("비밀번호를 입력해주세요");
+      return false;
+    }
+    else return true;
+    }
+
+</script>
+
     </script>
    
 </head>
@@ -111,6 +134,7 @@
       </div>
   </nav>
 <div class="writeWrap">
+  <form name="fr" onsubmit="return check()">
     <div style="margin: 10px;" class="label"> 제목
         <input id="title" class="input" type="text" placeholder="Title">
     </div>
@@ -141,9 +165,9 @@
     </div>
     <div style="float: right;">
     <button class="button is-light" style="width: 100px; margin: 5px;" onclick="location.href='/list'">취소</button>
-    <button class="button is-success" style="width: 100px; margin: 5px;" onclick="posting()">저장</button>
+    <button class="button is-success" style="width: 100px; margin: 5px;" type="submit" onclick="posting()">저장</button>
     </div>
-  
+  </form>
 </div>
 </body>
 </html>
