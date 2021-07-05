@@ -46,7 +46,7 @@
       var s = Math.floor((distance % (1000 * 60)) / 1000);
       $("#cardBox").empty()
       let tempHtml = ` <p class="navDate"> 항해 시작한지 <br><a style="font-size:60px;">${d}일째 </a><br> <div style="font-size:20px; margin: -20px; text-align: center;"> ${h}h ${m}m ${s}s</div></p>
-                        <img class="pikachu" style="margin-left: ${d}px;" src="/static/progress.gif"></img>
+                        <img class="pikachu" style="margin-left: ${d*2}px;" src="/static/progress.gif"></img>
                         <div class="progress">
                           <div class="progress-bar" role="progressbar" aria-valuenow="${d}"
                           aria-valuemin="0" aria-valuemax="99" style="width:${d}%">

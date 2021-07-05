@@ -72,7 +72,7 @@
             if($("#password").val() !== postsDetail['password']){
               alert("패스워드가 일치하지 않습니다.")
             }else{
-              check();
+               editPost();
             }
           }
         })
@@ -148,7 +148,6 @@
       function check() {
         let title = $('#title').val()
         let subtitle = $('#subtitle').val()
-        let category = $('#category').val()
         let context = $('#context').val()
         let writer = $('#writer').val()
 
@@ -164,7 +163,7 @@
         }else if(writer == "") {
           alert("작성자를 입력해주세요");
         }
-        else editPost();
+        else editPasswordCheck();
         }
 
     </script>
@@ -239,7 +238,7 @@
         <div style="float: right;">
           <button class="button is-light" style="width: 100px; margin: 5px;" onclick="goBack()">취소</button>
           <button class="button is-danger" style="width: 100px; margin: 5px;" onclick="deletePasswordCheck()">삭제하기</button>
-          <button class="button is-success" style="width: 100px; margin: 5px;" onclick="editPasswordCheck()">수정하기</button>
+          <button class="button is-success" style="width: 100px; margin: 5px;" onclick="check()">수정하기</button>
           </div>
         </div>
         </div>
